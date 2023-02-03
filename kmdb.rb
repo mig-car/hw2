@@ -92,7 +92,7 @@ studio = Studio.new
 studio.name = "Warner Bros."
 studio.save
 
-wb = Studio.find_by({"name"=>"Warner Bros."})
+warnerbros = Studio.find_by({"name"=>"Warner Bros."})["id"]
 
 # Quick check.
 puts "Studio count: #{Studio.all.count}"
@@ -101,26 +101,26 @@ movie = Movie.new
 movie.title = "Batman Begins"
 movie.year_released = 2005
 movie.rated = "PG-13"
-movie.studio_id = wb["id"]
+movie.studio_id = warnerbros
 movie.save
 
 movie = Movie.new
 movie.title = "The Dark Knight"
 movie.year_released = 2005
 movie.rated = "PG-13"
-movie.studio_id = wb["id"]
+movie.studio_id = warnerbros
 movie.save
 
 movie = Movie.new
 movie.title = "The Dark Knight Rises"
 movie.year_released = 2005
 movie.rated = "PG-13"
-movie.studio_id = wb["id"]
+movie.studio_id = warnerbros
 movie.save
 
-b1 = Movie.find_by({"title" => "Batman Begins"})
-b2 = Movie.find_by({"title" => "The Dark Knight"})
-b3 = Movie.find_by({"title" => "The Dark Knight Rises"})
+batman1 = Movie.find_by({"title" => "Batman Begins"})["id"]
+batman2 = Movie.find_by({"title" => "The Dark Knight"})["id"]
+batman3 = Movie.find_by({"title" => "The Dark Knight Rises"})["id"]
 
 # Quick check.
 puts "Movie count: #{Movie.all.count}"
@@ -141,17 +141,17 @@ Actor.insert_all(
     ]
 )
 
-cbale = Actor.find_by("name" => "Christian Bale")
-mcaine = Actor.find_by("name" => "Michael Caine")
-lneeson = Actor.find_by("name" => "Liam Neeson")
-kholmes = Actor.find_by("name" => "Katie Holmes")
-goldman = Actor.find_by("name" => "Gary Oldman")
-hledger = Actor.find_by("name" => "Heath Ledger")
-aeckhart = Actor.find_by("name" => "Aaron Eckhart")
-mg = Actor.find_by("name" => "Maggie Gyllenhaal")
-thardy = Actor.find_by("name" => "Tom Hardy")
-jgl = Actor.find_by("name" => "Joseph Gordon-Levitt")
-ahathaway = Actor.find_by("name" => "Anne Hathaway")
+cbale = Actor.find_by("name" => "Christian Bale")["id"]
+mcaine = Actor.find_by("name" => "Michael Caine")["id"]
+lneeson = Actor.find_by("name" => "Liam Neeson")["id"]
+kholmes = Actor.find_by("name" => "Katie Holmes")["id"]
+goldman = Actor.find_by("name" => "Gary Oldman")["id"]
+hledger = Actor.find_by("name" => "Heath Ledger")["id"]
+aeckhart = Actor.find_by("name" => "Aaron Eckhart")["id"]
+mg = Actor.find_by("name" => "Maggie Gyllenhaal")["id"]
+thardy = Actor.find_by("name" => "Tom Hardy")["id"]
+jgl = Actor.find_by("name" => "Joseph Gordon-Levitt")["id"]
+ahathaway = Actor.find_by("name" => "Anne Hathaway")["id"]
 
 # Quick check.
 puts "Actor count: #{Actor.all.count}"
@@ -159,23 +159,23 @@ puts "Actor count: #{Actor.all.count}"
 
 Role.insert_all(
     [
-        {"movie_id" => b1["id"], "actor_id" => cbale["id"], "character_name" => "Bruce Wayne"}, 
-        {"movie_id" => b1["id"], "actor_id" => mcaine["id"], "character_name" => "Alfred"}, 
-        {"movie_id" => b1["id"], "actor_id" => lneeson["id"], "character_name" => "Ra's Al Ghul"}, 
-        {"movie_id" => b1["id"], "actor_id" => kholmes["id"], "character_name" => "Rachel Dawes"}, 
-        {"movie_id" => b1["id"], "actor_id" => goldman["id"], "character_name" => "Commissioner Gordon"},
+        {"movie_id" => batman1, "actor_id" => cbale, "character_name" => "Bruce Wayne"}, 
+        {"movie_id" => batman1, "actor_id" => mcaine, "character_name" => "Alfred"}, 
+        {"movie_id" => batman1, "actor_id" => lneeson, "character_name" => "Ra's Al Ghul"}, 
+        {"movie_id" => batman1, "actor_id" => kholmes, "character_name" => "Rachel Dawes"}, 
+        {"movie_id" => batman1, "actor_id" => goldman, "character_name" => "Commissioner Gordon"},
 
-        {"movie_id" => b2["id"], "actor_id" => cbale["id"], "character_name" => "Bruce Wayne"},
-        {"movie_id" => b2["id"], "actor_id" => hledger["id"], "character_name" => "Joker"},
-        {"movie_id" => b2["id"], "actor_id" => aeckhart["id"], "character_name" => "Harvey Dent"},
-        {"movie_id" => b2["id"], "actor_id" => mcaine["id"], "character_name" => "Alfred"},
-        {"movie_id" => b2["id"], "actor_id" => mg["id"], "character_name" => "Rachel Dawes"},
+        {"movie_id" => batman2, "actor_id" => cbale, "character_name" => "Bruce Wayne"},
+        {"movie_id" => batman2, "actor_id" => hledger, "character_name" => "Joker"},
+        {"movie_id" => batman2, "actor_id" => aeckhart, "character_name" => "Harvey Dent"},
+        {"movie_id" => batman2, "actor_id" => mcaine, "character_name" => "Alfred"},
+        {"movie_id" => batman2, "actor_id" => mg, "character_name" => "Rachel Dawes"},
 
-        {"movie_id" => b3["id"], "actor_id" => cbale["id"], "character_name" => "Bruce Wayne"},  
-        {"movie_id" => b3["id"], "actor_id" => goldman["id"], "character_name" => "Commissioner Gordon"},  
-        {"movie_id" => b3["id"], "actor_id" => thardy["id"], "character_name" => "Bane"}, 
-        {"movie_id" => b3["id"], "actor_id" => jgl["id"], "character_name" => "John Blake"},  
-        {"movie_id" => b3["id"], "actor_id" => ahathaway["id"], "character_name" => "Selina Kyle"} 
+        {"movie_id" => batman3, "actor_id" => cbale, "character_name" => "Bruce Wayne"},  
+        {"movie_id" => batman3, "actor_id" => goldman, "character_name" => "Commissioner Gordon"},  
+        {"movie_id" => batman3, "actor_id" => thardy, "character_name" => "Bane"}, 
+        {"movie_id" => batman3, "actor_id" => jgl, "character_name" => "John Blake"},  
+        {"movie_id" => batman3, "actor_id" => ahathaway, "character_name" => "Selina Kyle"} 
     ]
 )
 
@@ -193,6 +193,12 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+# Can also use .joins method - for future reference.
+movies = Movie.all
+
+for movie in movies
+    printf "%-25s %-10s %-10s %-10s\n", movie["title"], movie["year_released"], movie["rated"], Studio.find_by({"id" => movie["studio_id"]})["name"]
+end
 
 # Prints a header for the cast output
 puts ""
@@ -202,3 +208,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+# Can't figure out why this doesn't work, aside from needing to define the relation in db/migrate files
+# roles = Role.joins("JOIN actors ON actors.id = roles.actor_id JOIN movies ON movies.id = roles.movie_id").all
+
+roles = Role.all
+
+for role in roles
+   printf "%-25s %-30s %-15s \n", Movie.find_by({"id" => role["movie_id"]})["title"], Actor.find_by({"id" => role["actor_id"]})["name"], role["character_name"]
+end
